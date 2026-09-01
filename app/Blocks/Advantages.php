@@ -48,53 +48,15 @@ class Advantages extends Block
 				'label' => 'Ikona',
 				'return_format' => 'array',
 				'preview_size' => 'thumbnail',
-				'conditional_logic' => [[
-					[
-						'field' => 'image_card',
-						'operator' => '==',
-						'value' => '0',
-					],
-				]],
-			])
-			->addImage('image', [
-				'label' => 'Obraz',
-				'return_format' => 'array',
-				'conditional_logic' => [[
-					[
-						'field' => 'image_card',
-						'operator' => '==',
-						'value' => '1',
-					],
-				]],
 			])
 			->addText('title', [
 				'label' => 'Nagłówek',
-				'conditional_logic' => [[
-					[
-						'field' => 'image_card',
-						'operator' => '==',
-						'value' => '0',
-					],
-				]],
 			])
 			->addWysiwyg('text', [
 				'label' => 'Treść',
 				'tabs' => 'all',
 				'toolbar' => 'full',
 				'media_upload' => true,
-				'conditional_logic' => [[
-					[
-						'field' => 'image_card',
-						'operator' => '==',
-						'value' => '0',
-					],
-				]],
-			])
-			->addTrueFalse('image_card', [
-				'label' => 'Duży blok z obrazem',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
 			])
 			->endRepeater()
 			->endGroup()
@@ -104,12 +66,6 @@ class Advantages extends Block
 			])
 			->addText('section_class', [
 				'label' => 'Dodatkowe klasy CSS',
-			])
-			->addTrueFalse('normal', [
-				'label' => 'Normalny grid',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
 			])
 			->addTrueFalse('flip', [
 				'label' => 'Odwrotna kolejność',
@@ -153,7 +109,6 @@ class Advantages extends Block
 		$fields = [
 			'g_advantages' => $gadvantages,
 			'r_advantages' => $gadvantages['r_advantages'] ?? [],
-			'normal' => (bool) get_field('normal'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
 			'flip' => (bool) get_field('flip'),

@@ -1,6 +1,6 @@
 <?php
 /**
  * Szablon dla archiwów kategorii produktów (np. /product-category/nazwa/).
- * Wczytuje dedykowany plik Blade z sidebarem.
+ * Współdzieli widok ze stroną sklepu (obsługuje sidebar i pola ACF kategorii).
  */
-echo \Roots\view('woocommerce.archive-category-with-sidebar')->render();
+echo \Roots\view('woocommerce.archive-product')->render();

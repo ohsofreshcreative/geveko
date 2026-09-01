@@ -1,18 +1,19 @@
 <footer class="footer overflow-hidden relative z-10">
 
+	<img class="absolute opacity-10 right-0 bottom-0" src="{{ get_template_directory_uri() }}/resources/images/lines-footer.svg" alt="Lines Footer" />
 
 	<div class="__wrapper relative z-10">
 
 		<div class="c-main">
 			<div class="__widgets footer-py">
 
-				<div class="__contact">
+				<div class="__contact pr-20">
 
 					@if(!empty($footer_contact['address']))
 					@if(!empty($logo_footer))
-					<a href="{{ home_url('/') }}" class="__logo">
+					<p class="__logo">
 						<img src="{{ $logo_footer['url'] }}" alt="{{ $logo_footer['alt'] ?? get_bloginfo('name') }}" class="w-full h-auto object-contain" />
-					</a>
+					</p>
 					@endif
 					<div class="__txt">
 						{!! $footer_contact['address'] !!}
@@ -37,21 +38,33 @@
 						</a>
 						@endif
 					</div>
+					@if (!empty($footer_contact['social_links']))
+					<div class="__social-links flex items-center gap-3">
+						@foreach ($footer_contact['social_links'] as $social)
+						@if (!empty($social['link']))
+						<a href="{{ $social['link'] }}" target="_blank" rel="noopener" class="__social-link">
+							@if (!empty($social['icon']['url']))
+							<img src="{{ $social['icon']['url'] }}" alt="{{ $social['icon']['alt'] ?? '' }}" class="w-6 h-6 object-contain" />
+							@endif
+						</a>
+						@endif
+						@endforeach
+					</div>
+					@endif
 					@if (!empty($footer_contact['hours']))
-						<div class="__hours">
-							{!! $footer_contact['hours'] !!}
-						</div>
+					<div class="__hours">
+						{!! $footer_contact['hours'] !!}
+					</div>
 					@endif
 				</div>
 
 				@for ($i = 1; $i <= 4; $i++)
 					@if (is_active_sidebar('sidebar-footer-' . $i))
-						<div class="__widget">@php(dynamic_sidebar('sidebar-footer-' . $i))</div>
-					@endif
-				@endfor
+					<div class="__widget">@php(dynamic_sidebar('sidebar-footer-' . $i))
 			</div>
+			@endif
+			@endfor
 		</div>
-
 	</div>
 
 	<div class="footer-bottom">

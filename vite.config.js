@@ -6,11 +6,11 @@ import path from 'path'
 
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
-  const wpOrigin = env.WP_HOME || 'http://bergermann.local'
+  const wpOrigin = env.WP_HOME || 'http://geveko.local'
 
   return {
     server: {
-      host: 'bergermann.local',
+      host: 'geveko.local',
       port: 5981,
       strictPort: true,
       cors: true,
@@ -22,13 +22,13 @@ export default defineConfig(({ command, mode }) => {
       },
       hmr: {
         protocol: 'ws',
-        host: 'bergermann.local',
+        host: 'geveko.local',
         port: 5981,
       },
     },
 
     base: command === 'build'
-      ? '/wp-content/themes/bergermann/public/build/'
+      ? '/wp-content/themes/geveko/public/build/'
       : '/build/',
 
     plugins: [

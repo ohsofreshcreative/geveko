@@ -32,6 +32,29 @@ use App\Walkers\MobileDropdownWalker;
 				Kontakt
 			</a>
 		</div>
+
+			<div class="__action flex items-center gap-4">
+				@if (function_exists('wc_get_page_id'))
+				<a href="{{ get_permalink(wc_get_page_id('myaccount')) }}" class="hover:opacity-80 transition-opacity">
+					<img src="{{ get_template_directory_uri() }}/resources/images/user.svg" alt="Moje konto" />
+				</a>
+				@else
+				<img src="{{ get_template_directory_uri() }}/resources/images/user.svg" alt="Użytkownik" />
+				@endif
+
+				@if (function_exists('WC'))
+				<a href="{{ wc_get_cart_url() }}" @click.prevent="window.dispatchEvent(new CustomEvent('cart-open'))" class="relative hover:opacity-80 transition-opacity cart-custom-location-desktop">
+					<img src="{{ get_template_directory_uri() }}/resources/images/cart.svg" alt="Koszyk" />
+					@if (WC()->cart && WC()->cart->get_cart_contents_count() > 0)
+					<span class="absolute -top-2 -right-2 bg-primary text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full cart-count">
+						{{ WC()->cart->get_cart_contents_count() }}
+					</span>
+					@endif
+				</a>
+				@else
+				<img src="{{ get_template_directory_uri() }}/resources/images/cart.svg" alt="Koszyk" />
+				@endif
+			</div>
 	</div>
 
 	<!-- Mobile Header Bar -->

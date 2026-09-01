@@ -31,7 +31,7 @@ class ThemeSettings extends Field
 			])
 			->addImage('logo_footer', [
 				'label' => 'Logo Stopka',
-				'return_format' => 'array', 
+				'return_format' => 'array',
 				'preview_size' => 'medium',
 				'library' => 'all',
 			])
@@ -57,6 +57,20 @@ class ThemeSettings extends Field
 			->addText('email', [
 				'label' => 'Adres E-mail',
 			])
+			->addRepeater('social_links', [
+				'label' => 'Social media',
+				'layout' => 'table',
+				'button_label' => 'Dodaj link',
+			])
+			->addImage('icon', [
+				'label' => 'Ikona',
+				'return_format' => 'array',
+				'preview_size' => 'thumbnail',
+			])
+			->addUrl('link', [
+				'label' => 'Link URL',
+			])
+			->endRepeater()
 			->endGroup();
 
 		return [$theme];

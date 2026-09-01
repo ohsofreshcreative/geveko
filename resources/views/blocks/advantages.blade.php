@@ -24,26 +24,9 @@
 		</div>
 
 		@if (!empty($r_advantages))
-		<div @class([ '__grid mt-10 grid grid-cols-1 gap-6' , 'sm:grid-cols-2 xl:grid-cols-4'=> $normal,
-			'xl:grid-cols-4' => !$normal,
-			])>
+		<div class="__grid mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
 			@foreach (($r_advantages ?? []) as $item)
-			@php
-			$isImageCard = !empty($item['image_card']);
-			$spanClass = 'xl:col-span-1';
-			if (!$normal && ($loop->iteration === 3 || $loop->iteration === 4)) {
-			$spanClass = 'xl:col-span-2';
-			}
-			@endphp
-
-			@if ($isImageCard)
-			<div data-gsap-element="card" class="__item __item--image relative self-stretch overflow-hidden bg-white {{ $spanClass }}">
-				@if (!empty($item['image']['url']))
-				<img class="block w-full object-cover xl:absolute xl:inset-0 xl:h-full" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] ?? '' }}">
-				@endif
-			</div>
-			@else
-			<div data-gsap-element="card" class="__item __item--card flex flex-col justify-between border border-primary-100 bg-white p-6 xl:p-8 {{ $spanClass }}">
+			<div data-gsap-element="card" class="__item __item--card flex flex-col justify-between border border-primary-100 bg-primary-bright radius p-6 xl:p-8">
 				@if (!empty($item['icon']['url']))
 				<div class="__icon flex h-20 w-20 items-center justify-center">
 					<img class="object-contain" src="{{ $item['icon']['url'] }}" alt="{{ $item['icon']['alt'] ?? '' }}">
@@ -55,7 +38,6 @@
 				@endif
 				<div>{!! $item['text'] !!}</div>
 			</div>
-			@endif
 			@endforeach
 		</div>
 		@endif

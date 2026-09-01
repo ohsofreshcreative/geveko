@@ -92,14 +92,14 @@ body {
 /*--- !ROOT ---*/
 
 :root {
-	--header: "Poppins", sans-serif;
-	--txt: 'GeneralSans', sans-serif;
-	--btns-font: 'GeneralSans', sans-serif;
+	--header: "Open Sans", sans-serif;
+	--txt: 'Open Sans', sans-serif;
+	--btns-font: 'Open Sans', sans-serif;
 
-	--smt: 104px;
-	--spt: 104px;
-	--smb: 104px;
-	--spb: 104px;
+	--smt: 88px;
+	--spt: 88px;
+	--smb: 88px;
+	--spb: 88px;
 	--menu-height: 88px !important;
 
 	--img-xs: 176px;
@@ -116,12 +116,13 @@ body {
 	--m-header: 16px;
 	--m-btn: 32px;
 	--m-img: 40px;
-	--radius: 24px;
-	--radius-img: 32px;
+	--radius: 8px;
+	--radius-lg: 16px;
+	--radius-img: 16px;
 
 	--btns-fontsize: 16px;
-	--btns-radius: 0px;
-	--btns-padding: 16px 40px;
+	--btns-radius: 16px;
+	--btns-padding: 24px 48px;
 
 	--footer-py: 112px 0 104px;
 }
@@ -461,90 +462,6 @@ body {
 
 /*--- !TYPOGRAPHY ---*/
 
-@font-face {
-	font-family: 'GeneralSans';
-	src: url('../fonts/GeneralSans-Extralight.otf') format('opentype');
-	font-weight: 200;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'GeneralSans';
-	src: url('../fonts/GeneralSans-ExtralightItalic.otf') format('opentype');
-	font-weight: 200;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'GeneralSans';
-	src: url('../fonts/GeneralSans-Light.otf') format('opentype');
-	font-weight: 300;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'GeneralSans';
-	src: url('../fonts/GeneralSans-LightItalic.otf') format('opentype');
-	font-weight: 300;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'GeneralSans';
-	src: url('../fonts/GeneralSans-Regular.otf') format('opentype');
-	font-weight: 400;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'GeneralSans';
-	src: url('../fonts/GeneralSans-Italic.otf') format('opentype');
-	font-weight: 400;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'GeneralSans';
-	src: url('../fonts/GeneralSans-Medium.otf') format('opentype');
-	font-weight: 500;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'GeneralSans';
-	src: url('../fonts/GeneralSans-MediumItalic.otf') format('opentype');
-	font-weight: 500;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'GeneralSans';
-	src: url('../fonts/GeneralSans-Semibold.otf') format('opentype');
-	font-weight: 600;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'GeneralSans';
-	src: url('../fonts/GeneralSans-SemiboldItalic.otf') format('opentype');
-	font-weight: 600;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'GeneralSans';
-	src: url('../fonts/GeneralSans-Bold.otf') format('opentype');
-	font-weight: 700;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'GeneralSans';
-	src: url('../fonts/GeneralSans-BoldItalic.otf') format('opentype');
-	font-weight: 700;
-	font-style: italic;
-}
-
 p,
 ul,
 li,
@@ -610,15 +527,6 @@ h6,
 	font-weight: 600;
 }
 
-.text-gradient {
-	background-image: linear-gradient(90deg, #025391 0%, #3FB9C1 100%);
-	-webkit-background-clip: text;
-	background-clip: text;
-	-webkit-text-fill-color: transparent;
-	color: transparent;
-	display: inline-block;
-}
-
 .text-big {
 	font-size: 90px;
 	font-weight: 500;
@@ -626,21 +534,21 @@ h6,
 
 h1,
 .text-h1 {
-	font-size: clamp(36px, 3.5vw, 60px) !important;
+	font-size: clamp(32px, 3.5vw, 56px) !important;
 	line-height: 1.15;
 }
 
 h2,
 .text-h2 {
-	font-size: clamp(34px, 4.5vw, 52px) !important;
+	font-size: clamp(30px, 3.5vw, 48px) !important;
 	line-height: 1.2;
 }
 
 h3,
 .text-h3 {
-	font-size: clamp(36px, 3.8vw, 48px) !important;
+	font-size: clamp(28px, 2.8vw, 42px) !important;
 	line-height: 1.25;
-}
+}s
 
 h4,
 .text-h4 {
@@ -702,9 +610,8 @@ h6,
 	border-radius: var(--radius) !important;
 }
 
-.radius-left {
-	border-top-left-radius: var(--radius) !important;
-	border-bottom-left-radius: var(--radius) !important;
+.radius-lg {
+	border-radius: var(--radius-lg) !important;
 }
 
 .radius-img {
@@ -712,13 +619,13 @@ h6,
 }
 
 .b-shadow {
-	box-shadow: 0px 16px 24px 0px rgb(20, 45, 74, 0.15);
-	transition: all 0.3s ease-in-out;
+	box-shadow: 0px 8px 16px 0px rgb(20, 45, 74, 0.15);
+	transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .b-shadow:hover {
-	transform: translateY(-3px);
-	box-shadow: 0px 8px 16px 0px rgba(20, 45, 74, 0.35);
+	transform: translateY(-1px);
+	box-shadow: 0px 4px 8px 0px rgba(20, 45, 74, 0.35);
 }
 
 /*--- !BUTTONS ---*/
@@ -845,6 +752,18 @@ h6,
 .btn-secondary-small:hover {
 	background-color: var(--color-secondary-hover);
 	border-color: var(--color-secondary-hover);
+	color: #fff;
+}
+
+.btn-outline-primary-small {
+	background-color: transparent;
+	border-color: var(--color-primary);
+	color: var(--color-primary);
+	padding: 8px 24px;
+}
+
+.btn-outline-primary-small:hover {
+	background-color: var(--color-primary);
 	color: #fff;
 }
 
@@ -1390,28 +1309,6 @@ article.post:hover {
 		margin-bottom: 4px;
 	}
 
-	&::before,
-	&::after {
-		content: '';
-		position: absolute;
-		width: 24px;
-		height: 24px;
-		background: var(--color-primary-800);
-		box-shadow: 24px 24px 0 var(--color-primary-900), 48px 48px 0 rgb(255 255 255 / 14%);
-		pointer-events: none;
-	}
-
-	&::before {
-		top: 76px;
-		left: max(24px, calc((100vw - 1680px) / 2));
-	}
-
-	&::after {
-		right: 0;
-		top: 156px;
-		transform: rotate(180deg);
-	}
-
 	.__widgets {
 		display: grid;
 		grid-template-columns: minmax(260px, 1.15fr) repeat(3, minmax(150px, 1fr));
@@ -1453,12 +1350,13 @@ article.post:hover {
 		display: block;
 		width: min(100%, 220px);
 		padding-bottom: 24px;
-		border-bottom: 1px solid var(--color-primary);
 	}
 
 	.__txt {
 		width: 100%;
+		padding-top: 16px;
 		padding-bottom: 16px;
+		border-top: 1px solid var(--color-primary);
 		border-bottom: 1px solid var(--color-primary);
 		font-size: 16px;
 		line-height: 1.45;

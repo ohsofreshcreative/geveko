@@ -16,19 +16,17 @@
 		class="w-full h-full object-cover" />
 	@endif
 
-	<div class="__overlay absolute inset-0 z-1 pointer-events-none"></div>
-	<span class="__shape" aria-hidden="true"></span>
+	<div class="__overlay absolute inset-0 z-1 pointer-events-none bg-linear-to-r from-black to-transparent"></div>
 
-	<div class="__wrapper c-main relative z-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-20">
+	<div class="__wrapper c-main relative z-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-20 py-30">
 		<div class="__content w-full">
-			<span class="__pixels" aria-hidden="true"><i></i><i></i></span>
 
 			@if (!empty($g_octa['header']))
-			<h2 data-gsap-element="header" class="text-white m-header">{{ $g_octa['header'] }}</h2>
+			<h2 data-gsap-element="header" class="text-white">{{ $g_octa['header'] }}</h2>
 			@endif
 
 			@if (!empty($g_octa['txt']))
-			<div data-gsap-element="txt" class="__txt text-white">{!! $g_octa['txt'] !!}</div>
+			<div data-gsap-element="txt" class="__txt  m-header text-white">{!! $g_octa['txt'] !!}</div>
 			@endif
 
 			@if (!$form && (!empty($g_octa['button1']) || !empty($g_octa['button2'])))
@@ -36,7 +34,7 @@
 				@if (!empty($g_octa['button1']))
 				<x-button
 					:href="$g_octa['button1']['url']"
-					variant="white"
+					variant="primary"
 					data-gsap-element="btn">
 					{{ $g_octa['button1']['title'] }}
 				</x-button>
@@ -45,7 +43,7 @@
 				@if (!empty($g_octa['button2']))
 				<x-button
 					:href="$g_octa['button2']['url']"
-					variant="secondary"
+					variant="white"
 					data-gsap-element="btn">
 					{{ $g_octa['button2']['title'] }}
 				</x-button>

@@ -507,16 +507,16 @@
         },
         {
             "name": "generoi/sage-woocommerce",
-            "version": "v1.1.3",
+            "version": "v1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/generoi/sage-woocommerce.git",
-                "reference": "827339655ddcb98da90b2be3c62cd335043546cd"
+                "reference": "726131140e1b155b26ecd20456773f531dcc9261"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/generoi/sage-woocommerce/zipball/827339655ddcb98da90b2be3c62cd335043546cd",
-                "reference": "827339655ddcb98da90b2be3c62cd335043546cd",
+                "url": "https://api.github.com/repos/generoi/sage-woocommerce/zipball/726131140e1b155b26ecd20456773f531dcc9261",
+                "reference": "726131140e1b155b26ecd20456773f531dcc9261",
                 "shasum": ""
             },
             "require": {
@@ -551,9 +551,9 @@
             "homepage": "https://github.com/generoi/sage-woocommerce",
             "support": {
                 "issues": "https://github.com/generoi/sage-woocommerce/issues",
-                "source": "https://github.com/generoi/sage-woocommerce/tree/v1.1.3"
+                "source": "https://github.com/generoi/sage-woocommerce/tree/v1.1.4"
             },
-            "time": "2024-03-18T15:10:41+00:00"
+            "time": "2026-07-30T12:47:48+00:00"
         },
         {
             "name": "graham-campbell/result-type",
