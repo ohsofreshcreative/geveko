@@ -108,6 +108,15 @@ class Contact extends Block
 				'default_value' => 'none',
 				'ui' => 0,
 				'allow_null' => 0,
+			])
+			->addNumber('overlay_opacity', [
+				'label' => 'Krycie nakładki na zdjęciu (%)',
+				'instructions' => 'Krycie kolorowej nakładki na zdjęciu w tle (0-100%). Pozwala ustawić inną wartość dla tej konkretnej strony, np. gdy zdjęcie ma być bardziej widoczne.',
+				'min' => 0,
+				'max' => 100,
+				'step' => 1,
+				'default_value' => 90,
+				'append' => '%',
 			]);
 
 
@@ -129,6 +138,7 @@ class Contact extends Block
 			'gap' => (bool) get_field('gap'),
 
 			'background' => get_field('background') ?: get_field('default_block_background', 'option') ?: 'none',
+			'overlayOpacity' => is_numeric(get_field('overlay_opacity')) ? (float) get_field('overlay_opacity') : 90,
 		];
 
 		$fields['sectionClass'] = SectionClasses::fromMap($fields, [

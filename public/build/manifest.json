@@ -29,7 +29,7 @@
     "src": "editor.deps.json"
   },
   "resources/css/app.css": {
-    "file": "assets/app-CafX3QOf.css",
+    "file": "assets/app-RkbqKKcY.css",
     "name": "app",
     "names": [
       "app.css"
@@ -38,16 +38,16 @@
     "isEntry": true,
     "assets": [
       "assets/btn-arrow-DTPiQfMM.svg",
-      "assets/bottom-arrow-BE5KB43S.svg",
+      "assets/bottom-arrow-BIW1L8lC.svg",
       "assets/check-B9vqYQsp.svg",
       "assets/pointer-5_58814e.svg",
       "assets/hero-stripes-bg-C5teitVT.jpg",
-      "assets/phone-2Yr8v-wi.svg",
-      "assets/mail-DTO3FXDf.svg"
+      "assets/phone-B5evyx38.svg",
+      "assets/mail-BoVXRJiK.svg"
     ]
   },
   "resources/css/editor.css": {
-    "file": "assets/editor-scO2ZCDI.css",
+    "file": "assets/editor-Lghzp-lU.css",
     "name": "editor",
     "names": [
       "editor.css"
@@ -56,16 +56,16 @@
     "isEntry": true,
     "assets": [
       "assets/btn-arrow-DTPiQfMM.svg",
-      "assets/bottom-arrow-BE5KB43S.svg",
+      "assets/bottom-arrow-BIW1L8lC.svg",
       "assets/check-B9vqYQsp.svg",
       "assets/pointer-5_58814e.svg",
       "assets/hero-stripes-bg-C5teitVT.jpg",
-      "assets/phone-2Yr8v-wi.svg",
-      "assets/mail-DTO3FXDf.svg"
+      "assets/phone-B5evyx38.svg",
+      "assets/mail-BoVXRJiK.svg"
     ]
   },
   "resources/images/bottom-arrow.svg": {
-    "file": "assets/bottom-arrow-BE5KB43S.svg",
+    "file": "assets/bottom-arrow-BIW1L8lC.svg",
     "src": "resources/images/bottom-arrow.svg"
   },
   "resources/images/btn-arrow.svg": {
@@ -81,11 +81,11 @@
     "src": "resources/images/hero-stripes-bg.jpg"
   },
   "resources/images/mail.svg": {
-    "file": "assets/mail-DTO3FXDf.svg",
+    "file": "assets/mail-BoVXRJiK.svg",
     "src": "resources/images/mail.svg"
   },
   "resources/images/phone.svg": {
-    "file": "assets/phone-2Yr8v-wi.svg",
+    "file": "assets/phone-B5evyx38.svg",
     "src": "resources/images/phone.svg"
   },
   "resources/images/pointer.svg": {
@@ -93,7 +93,7 @@
     "src": "resources/images/pointer.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-CaYzjU55.js",
+    "file": "assets/app-fi4sDMpr.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -102,7 +102,8 @@
       "resources/js/blocks/tabs.js",
       "resources/js/blocks/slider.js",
       "resources/js/blocks/steps.js",
-      "resources/js/blocks/catalogues.js"
+      "resources/js/blocks/catalogues.js",
+      "resources/js/ral-search.js"
     ]
   },
   "resources/js/blocks/catalogues.js": {
@@ -151,5 +152,11 @@
     "name": "editor",
     "src": "resources/js/editor.js",
     "isEntry": true
+  },
+  "resources/js/ral-search.js": {
+    "file": "assets/ral-search-C2QkoCRZ.js",
+    "name": "ral-search",
+    "src": "resources/js/ral-search.js",
+    "isDynamicEntry": true
   }
 }

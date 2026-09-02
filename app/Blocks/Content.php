@@ -53,6 +53,21 @@ public $supports = [
 				'label' => 'Przycisk #2',
 				'return_format' => 'array',
 			])
+			->addTrueFalse('hint', [
+				'label' => 'Dodaj dymek',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addImage('image_hint', [
+				'label' => 'Obraz',
+				'return_format' => 'array',
+				'preview_size' => 'thumbnail',
+			])
+			->conditional('hint', '==', '1')
+			->addText('header_hint', ['label' => 'Nagłówek'])
+			->addText('text_hint', ['label' => 'Treść dymku'])
+			->conditional('hint', '==', '1')
 			->endGroup()
 
 			/*--- USTAWIENIA BLOKU ---*/
@@ -66,12 +81,6 @@ public $supports = [
 			])
 			->addTrueFalse('bgshape', [
 				'label' => 'Kształt w tle',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('stroke', [
-				'label' => 'Obramowanie obrazu',
 				'ui' => 1,
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',

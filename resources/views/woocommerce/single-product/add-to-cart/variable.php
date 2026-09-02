@@ -34,9 +34,11 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 		<table class="variations block w-full border-b border-primary-lighter pb-8 mb-8" cellspacing="0" role="presentation">
 			<tbody>
 				<?php foreach ( $attributes as $attribute_name => $options ) : ?>
+					<?php $is_ral_color = ( 'pa_' . \App\Woo\RalAttributes::ATTR_COLOR === $attribute_name ); ?>
 					<tr>
 						<th class="label"><label for="<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>"><?php echo wc_attribute_label( $attribute_name ); // WPCS: XSS ok. ?></label></th>
-						<td class="value">
+						<td class="value<?php echo $is_ral_color ? ' ral-color-field' : ''; ?>"<?php echo $is_ral_color ? ' data-ral-picker' : ''; ?>>
+							<?php if ( $is_ral_color ) : ob_start(); endif; ?>
 							<?php
 								wc_dropdown_variation_attribute_options(
 									array(
@@ -54,6 +56,29 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 								 */
 							/* 	echo end( $attribute_keys ) === $attribute_name ? wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#" aria-label="' . esc_attr__( 'Clear options', 'woocommerce' ) . '">' . esc_html__( 'Clear', 'woocommerce' ) . '</a>' ) ) : ''; */
 							?>
+							<?php if ( $is_ral_color ) : ?>
+								<?php
+									// Dokłada data-color="#hex" do każdego <option> RAL, żeby JS (ral-search.js) mógł zbudować
+									// combobox z kolorowymi kropkami bez dodatkowych zapytań do bazy - koloruje na podstawie
+									// kodu RAL wyciągniętego z etykiety opcji ("RAL 3000"), tak samo jak reszta tej funkcji.
+									$select_html = ob_get_clean();
+									$select_html = preg_replace_callback(
+										'/<option value="([^"]*)"([^>]*)>([^<]*)<\/option>/',
+										function ( $matches ) {
+											$code = \App\Support\RalColors::codeFromTermName( html_entity_decode( $matches[3] ) );
+											$color = $code ? \App\Support\RalColors::hex( $code ) : null;
+
+											if ( ! $color ) {
+												return $matches[0];
+											}
+
+											return '<option value="' . $matches[1] . '"' . $matches[2] . ' data-color="' . esc_attr( $color ) . '">' . $matches[3] . '</option>';
+										},
+										$select_html
+									);
+									echo $select_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								?>
+							<?php endif; ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

@@ -91,6 +91,33 @@ add_filter('woocommerce_product_tabs', function ($tabs) {
         $priority++;
     }
 
+    // Dla produktów z przypisanymi kolorami RAL zakładka "Informacje dodatkowe" (domyślna z WooCommerce)
+    // i tak pokazywała tylko surową, przecinkową listę ~100-200 kodów RAL - zastępujemy ją siatką
+    // kolorowych kafelków w tym samym miejscu (ta sama pozycja co domyślna zakładka - priority 20).
+    $colorTaxonomy = wc_attribute_taxonomy_name(\App\Woo\RalAttributes::ATTR_COLOR);
+    $colorTerms = wc_get_product_terms($product->get_id(), $colorTaxonomy, ['fields' => 'all']);
+
+    if (! empty($colorTerms)) {
+        unset($tabs['additional_information']);
+
+        $colors = array_map(function ($term) {
+            $code = \App\Support\RalColors::codeFromTermName($term->name);
+
+            return [
+                'label' => $term->name,
+                'hex' => $code ? \App\Support\RalColors::hex($code) : '#CCCCCC',
+            ];
+        }, $colorTerms);
+
+        $tabs['ral_palette'] = [
+            'title' => 'Podgląd palety RAL',
+            'priority' => 20,
+            'callback' => function () use ($colors) {
+                echo \Roots\view('partials.product-tab-ral-palette', ['colors' => $colors])->render();
+            },
+        ];
+    }
+
     return $tabs;
 });
 

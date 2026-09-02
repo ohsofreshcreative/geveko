@@ -18,7 +18,7 @@
 	@endif
 
 	@if (!empty($g_contact_1['image']))
-	<div class="absolute inset-0 z-1 pointer-events-none opacity-90" style="background: linear-gradient(90deg, #B40061 5.84%, #4E002A 100.47%);"></div>
+	<div class="absolute inset-0 z-1 pointer-events-none bg-linear-to-r from-[rgba(0,0,0,1)] from-0% to-[rgba(0,0,0,0.3)] to-100%" style="opacity: {{ $overlayOpacity }}%;"></div>
 	@endif
 
 	<div class="__wrapper c-main relative z-2 pt-10 pb-10 md:pt-24 md:pb-24">
@@ -38,16 +38,9 @@
 					{!! $g_contact_1['hours'] !!}
 				</div>
 				@endif
-				<x-button
-					href="#lokalizacje"
-					variant="secondary"
-					class="!bg-secondary-200 hover:!bg-secondary-400 mt-6"
-					data-gsap-element="btn">
-					Sprawdź lokalizacje
-				</x-button>
 			</div>
 
-			<div data-gsap-element="form" class="__form bg-white p-6 md:p-10">
+			<div data-gsap-element="form" class="__form bg-white radius p-6 md:p-10">
 				<h4 class="mb-4">{!! $g_contact_2['title'] !!}</h4>
 				{!! do_shortcode($g_contact_2['shortcode']) !!}
 			</div>

@@ -15,11 +15,11 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <script type="text/template" id="tmpl-variation-template">
     <div class="woocommerce-variation-description">{{{ data.variation.variation_description }}}</div>
-    <div class="woocommerce-variation-price">{{{ data.variation.price_html }}}</div>
+    <div class="woocommerce-variation-price"> Cena: {{{ data.variation.price_html }}}</div>
     
   
         <div class="woocommerce-variation-price-net price-net text-lg text-gray-500 mt-1 !font-medium [&_bdi]:!text-lg [&_bdi]:!text-gray-500 [&_bdi]:!font-medium [&_bdi_span]:!text-lg [&_bdi_span]:!text-gray-500 [&_bdi_span]:!font-medium">
-            {{{ data.variation.price_net_html }}} netto
+           {{{ data.variation.price_net_html }}} 
         </div>
 
 

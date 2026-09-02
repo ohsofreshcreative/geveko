@@ -118,4 +118,16 @@ class RalColors
 
 		return null;
 	}
+
+	/**
+	 * Wyciąga wagę w kg (np. 5, 10.5) z nazwy terminu atrybutu wagi ("5kg", "10 kg").
+	 */
+	public static function weightFromTermName(string $name): ?float
+	{
+		if (preg_match('/([\d]+(?:[.,]\d+)?)/', $name, $matches)) {
+			return (float) str_replace(',', '.', $matches[1]);
+		}
+
+		return null;
+	}
 }

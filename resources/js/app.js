@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.querySelector('.b-slider')) import('./blocks/slider');
   if (document.querySelector('.b-steps')) import('./blocks/steps');
   if (document.querySelector('.b-catalogues')) import('./blocks/catalogues');
+  if (document.querySelector('[data-ral-picker]')) import('./ral-search');
 });
 
 /*--- NOT USED ---*/

@@ -58,6 +58,14 @@ class ORalPricing extends Options
 				'ui_off_text' => 'Nie',
 				'default_value' => 0,
 			])
+			->addTrueFalse('sync_colors_now', [
+				'label' => 'Zsynchronizuj kolory RAL (jednorazowo)',
+				'instructions' => 'Zaznacz i zapisz, żeby utworzyć/zaktualizować terminy atrybutu "Kolor RAL" (wraz z miniaturkami kolorów) oraz podstawowe wagi w atrybucie "Waga". Bezpieczne do ponownego uruchomienia. Po synchronizacji pole samo się odznacza.',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+				'default_value' => 0,
+			])
 			->endGroup();
 
 		return $oralpricing;
